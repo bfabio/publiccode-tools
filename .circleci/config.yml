@@ -4,7 +4,8 @@ references:
   docker_publish_parameters: &docker_publish_parameters
     image: bfabio/publiccode-tools-elasticsearch
     tag: "latest,$CIRCLE_SHA1"
-    path: elasticsearch/
+    path: elasticsearch
+    docker-context: elasticsearch
 
 orbs:
   docker: circleci/docker@1.4.0
