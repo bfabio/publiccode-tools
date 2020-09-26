@@ -3,7 +3,7 @@ version: 2.1
 references:
   docker_publish_parameters: &docker_publish_parameters
     image: bfabio/publiccode-tools-elasticsearch
-    tag: "latest $CIRCLE_SHA1"
+    tag: "latest,$CIRCLE_SHA1"
     path: elasticsearch/
 
 orbs:
