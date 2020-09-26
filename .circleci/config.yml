@@ -14,6 +14,7 @@ workflows:
     jobs:
       - docker/publish:
           <<: *docker_publish_parameters
+          lint-dockerfile: true
           deploy: false
           filters:
             branches:

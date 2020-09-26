@@ -17,12 +17,12 @@ ENV http.cors.allow-origin  *
 ENV http.cors.allow-methods  OPTIONS, HEAD, GET, POST, PUT, DELETE
 ENV http.cors.allow-headers  X-Requested-With,X-Auth-Token,Content-Type, Content-Length
 
-RUN set -o pipefail; \
-        \
-        curl -sL https://rpm.nodesource.com/setup_10.x | bash - \
-        yum install -y nodejs \
-        npm install -g elasticdump \
-        elasticdump --input "$ELASTIC_SERVER" --output "$ELASTIC_DUMP_FILE"
+RUN set -o pipefail \
+        ; \
+        && curl -sL https://rpm.nodesource.com/setup_10.x | bash - \
+        && yum install -y nodejs \
+        && npm install -g elasticdump \
+        && elasticdump --input "$ELASTIC_SERVER" --output "$ELASTIC_DUMP_FILE"
 
 COPY entrypoint.sh /usr/local/bin/
 
